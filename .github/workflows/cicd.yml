@@ -14,7 +14,7 @@ env:
   IMAGE_NAME: portfolio
   AWS_REGION: us-east-1
   ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
-  ECR_REPO: $ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_NAME
+  ECR_REPO: $ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/dev/portfolio
 
 jobs:
   build:
@@ -45,7 +45,7 @@ jobs:
       # 4. Build Docker image
       - name: Build Docker image
         run: |
-          docker build -t ${{ env.IMAGE_NAME }} .
+          docker build -t portfolio .
  
       # 5. Tag Docker image for ECR
       - name: Tag Docker image
